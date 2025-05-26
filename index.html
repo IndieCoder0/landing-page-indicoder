@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IndieCoder - Learn to Code Smarter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #0e0e0e, #1a1a1a);
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to right, #121212, #1a1a1a);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ff7a00;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      color: #ff7a00;
+      font-weight: 800;
+      font-size: 2.2rem;
+    }
+
+    nav a {
+      color: #ffffff;
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff7a00;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem;
+      background: url('https://images.unsplash.com/photo-1531497865142-0464ef8fb9c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center;
+      background-size: cover;
+    }
+
+    .hero h2 {
+      font-size: 4rem;
+      font-weight: 800;
+      color: #ff7a00;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px #000;
+    }
+
+    .hero p {
+      max-width: 800px;
+      font-size: 1.5rem;
+      color: #dddddd;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .cta-button {
+      margin-top: 2rem;
+      background-color: #ff7a00;
+      color: #0e0e0e;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 8px 18px rgba(255, 122, 0, 0.5);
+    }
+
+    .cta-button:hover {
+      background-color: #e66900;
+      transform: scale(1.1);
+    }
+
+    .features, .tools, .community, .blog {
+      padding: 6rem 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      background: linear-gradient(to right, #141414, #1a1a1a);
+    }
+
+    .feature-box {
+      background-color: #252525;
+      padding: 3rem;
+      border: 1px solid #333;
+      border-radius: 15px;
+      transition: all 0.3s;
+      text-align: center;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-10px);
+      border-color: #ff7a00;
+    }
+
+    .feature-box h3 {
+      color: #ff7a00;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-box p {
+      color: #bbbbbb;
+    }
+
+    .feature-box i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #ff7a00;
+    }
+
+    .extra-section {
+      padding: 6rem 3rem;
+      text-align: center;
+      background: linear-gradient(120deg, #1a1a1a, #0f0f0f);
+    }
+
+    .extra-section h2 {
+      font-size: 2.8rem;
+      color: #ff7a00;
+      margin-bottom: 1.5rem;
+    }
+
+    .extra-section p {
+      font-size: 1.3rem;
+      color: #ccc;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .gallery {
+      background: #1a1a1a;
+      padding: 6rem 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 300px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .testimonials, .newsletter {
+      padding: 6rem 3rem;
+      background-color: #1a1a1a;
+      text-align: center;
+    }
+
+    .testimonials h2, .newsletter h2 {
+      font-size: 2.5rem;
+      color: #ff7a00;
+      margin-bottom: 2rem;
+    }
+
+    .testimonial {
+      max-width: 700px;
+      margin: 2rem auto;
+      font-style: italic;
+      color: #ccc;
+      font-size: 1.2rem;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 1rem;
+      border-radius: 10px;
+      border: none;
+      width: 320px;
+      margin-right: 1rem;
+    }
+
+    .newsletter button {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff7a00;
+      color: #0e0e0e;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    footer {
+      background: linear-gradient(to right, #121212, #1a1a1a);
+      color: #888;
+      text-align: center;
+      padding: 3rem;
+      font-size: 1rem;
+      border-top: 2px solid #ff7a00;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>IndieCoder</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#features">Features</a>
+      <a href="#extra">Why Us</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#login">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Learn to Code, the Indie Way</h2>
+    <p>IndieCoder is your personal code companion. From HTML to AI, we help you build your skills through tools, tutorials, and 24/7 AI help.</p>
+    <button class="cta-button">Get Started for Free</button>
+  </section>
+
+  <section class="features" id="features">
+    <div class="feature-box">
+      <i class="ri-code-box-line"></i>
+      <h3>Code Editor</h3>
+      <p>Use our built-in code editor to learn and practice instantly, with live preview and dark mode.</p>
+    </div>
+    <div class="feature-box">
+      <i class="ri-cpu-line"></i> <!-- This is the robot icon -->
+      <h3>AI Assistant</h3>
+      <p>Ask anything, debug errors, or learn new concepts — your AI buddy is here to help.</p>
+    </div>
+
+    <div class="feature-box">
+      <i class="ri-paint-brush-line"></i>
+      <h3>CSS Tools</h3>
+      <p>Pre-made templates, box shadows, gradients, color pickers, and everything you need to speed up your front-end dev.</p>
+    </div>
+    <div class="feature-box">
+      <i class="ri-community-line"></i>
+      <h3>Community</h3>
+      <p>Join our forums and Discord to get help, showcase your projects, and grow together.</p>
+    </div>
+  </section>
+
+  <section class="extra-section" id="extra">
+    <h2>Why IndieCoder?</h2>
+    <p>Because we believe coding should be fun, accessible, and creative. Our platform is built for indie developers, by indie developers, to foster a space where ideas come to life.</p>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <img src="https://images.pexels.com/photos/574077/pexels-photo-574077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Gallery 1">
+    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery 2">
+    <img src="http://cdn.pixabay.com/photo/2018/11/13/18/05/html-3813614_1280.jpg" alt="Gallery 3">
+    <img src="https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg" alt="Gallery 4">
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonial">“IndieCoder helped me get my first dev job. The tools and support are top-notch!” – Alex J.</div>
+    <div class="testimonial">“Finally, a learning platform that feels fun and doesn’t overload you with ads.” – Priya S.</div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Subscribe to Our Newsletter</h2>
+    <form>
+      <input type="email" placeholder="Enter your email">
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 IndieCoder. All rights reserved.* | Privacy Policy | Terms of Use
+  </footer>
+</body>
+</html>
